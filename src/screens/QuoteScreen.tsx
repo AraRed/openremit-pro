@@ -194,20 +194,15 @@ export function QuoteScreen() {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 How much USDC?
               </label>
-              <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-lg">
-                  💲
-                </span>
-                <Input
-                  type="number"
-                  value={amount}
-                  onChange={(e) => handleAmountChange(e.target.value)}
-                  className="pl-12 text-lg"
-                  placeholder="500"
-                  min="10"
-                  max="100000"
-                />
-              </div>
+              <Input
+                type="number"
+                value={amount}
+                onChange={(e) => handleAmountChange(e.target.value)}
+                className="text-lg"
+                placeholder="500"
+                min="10"
+                max="100000"
+              />
               <p className="text-xs text-gray-500 mt-1">
                 Enter amount in USDC ($10 - $100,000)
               </p>
@@ -220,7 +215,7 @@ export function QuoteScreen() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   From Network
                 </label>
-                <div className="w-full px-4 py-3 text-lg border border-gray-200 rounded-lg bg-gray-50">
+                <div className="w-full px-4 py-3 text-lg border border-gray-200 rounded-lg bg-gray-50 h-[52px] flex items-center">
                   <span className="font-medium">Ethereum</span>
                 </div>
               </div>
@@ -252,23 +247,13 @@ export function QuoteScreen() {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Send to (Optional)
               </label>
-              <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-lg">
-                  👤
-                </span>
-                <Input
-                  type="text"
-                  value={recipient}
-                  onChange={(e) => handleRecipientChange(e.target.value)}
-                  className="pl-12 text-lg"
-                  placeholder="@username or wallet address"
-                />
-                {isResolvingAddress && (
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-blue-500">
-                    🔄
-                  </span>
-                )}
-              </div>
+              <Input
+                type="text"
+                value={recipient}
+                onChange={(e) => handleRecipientChange(e.target.value)}
+                className="text-lg"
+                placeholder="@username or wallet address"
+              />
               {/* TODO: Re-enable when TON DNS is working
               {resolvedAddress && (
                 <p className="text-xs text-green-600 mt-1 flex items-center gap-1">
