@@ -52,6 +52,7 @@ app = Flask(__name__)
 # CORS Configuration - Support both development and production
 ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', 'http://localhost:5173').split(',')
 CORS(app, origins=ALLOWED_ORIGINS + [
+    'https://openremit-pro-lscw.vercel.app',  # Vercel deployment
     'https://web.telegram.org',
     'https://telegram.org'
 ])
