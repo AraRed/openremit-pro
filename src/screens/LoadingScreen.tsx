@@ -18,8 +18,8 @@ export function LoadingScreen({ country, onComplete }: LoadingScreenProps) {
 
   const steps = [
     { text: `Analyzing ${country}`, icon: '✅', delay: 0 },
-    { text: 'Comparing 15+ bridge providers', icon: '✅', delay: 1500 },
-    { text: 'Finding cheapest route', icon: '⏳', delay: 3000 },
+    { text: 'Finding all valid paths', icon: '✅', delay: 1500 },
+    { text: 'Calculating best prices', icon: '⏳', delay: 3000 },
   ]
 
   useEffect(() => {
