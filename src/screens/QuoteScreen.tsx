@@ -215,7 +215,7 @@ export function QuoteScreen() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   From Network
                 </label>
-                <div className="w-full px-4 py-3 text-lg border border-gray-200 rounded-lg bg-gray-50 h-[52px] flex items-center">
+                <div className="w-full h-14 px-4 text-lg border border-gray-200 rounded-lg bg-gray-50 flex items-center">
                   <span className="font-medium">Ethereum</span>
                 </div>
               </div>
@@ -228,7 +228,13 @@ export function QuoteScreen() {
                 <select
                   value={destinationCountry}
                   onChange={(e) => handleDestinationCountryChange(e.target.value as CountryName)}
-                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full h-14 px-4 pr-10 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                    backgroundPosition: 'right 0.75rem center',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '1.5em 1.5em'
+                  }}
                 >
                   <option value="Brazil">Base (L2)</option>
                   <option value="Nigeria">Arbitrum (L2)</option>
