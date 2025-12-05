@@ -1,6 +1,12 @@
 [build]
 builder = "NIXPACKS"
 
+[build.nixpacksPlan]
+providers = ["python"]
+
+[build.nixpacksConfig]
+pythonVersion = "3.11"
+
 [deploy]
 startCommand = "python api_server.py"
 restartPolicyType = "ON_FAILURE"
