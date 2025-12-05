@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2020",                          // Compile to modern JavaScript
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],    // Include browser APIs
+    "jsx": "react-jsx",                          // Use new JSX transform (no need to import React)
+
+    /* Module Resolution */
+    "module": "ESNext",                          // Use modern ES modules
+    "moduleResolution": "bundler",               // Let Vite handle module resolution
+    "resolveJsonModule": true,                   // Allow importing .json files
+
+    /* Type Checking */
+    "strict": true,                              // Enable ALL strict type checks
+    "noUnusedLocals": true,                      // Error on unused variables
+    "noUnusedParameters": true,                  // Error on unused function parameters
+    "noFallthroughCasesInSwitch": true,         // Catch missing break in switch
+    "noUncheckedIndexedAccess": true,           // Array access might be undefined
+
+    /* Emit */
+    "noEmit": true,                              // Don't emit .js files (Vite does this)
+    "isolatedModules": true,                     // Each file can be compiled separately
+
+    /* Interop */
+    "esModuleInterop": true,                     // Better CommonJS/ES module compatibility
+    "allowSyntheticDefaultImports": true,        // Allow default imports from modules
+    "forceConsistentCasingInFileNames": true,    // Enforce case-sensitive file names
+
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],                        // Use @/ instead of ../../../
+      "@/components/*": ["./src/components/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/store/*": ["./src/store/*"]
+    },
+
+    /* Skip Library Checks */
+    "skipLibCheck": true                         // Skip type checking of .d.ts files
+  },
+  "include": ["src"]                              // Only check files in src/
+}
