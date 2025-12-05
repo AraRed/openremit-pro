@@ -7,10 +7,16 @@
  * - Direct .ton domain resolution
  *
  * Uses TON SDK to query DNS smart contracts on-chain
+ *
+ * NOTE: Disabled for Phase 1 deployment. Will be enabled in Phase 2.
  */
 
-import { Address } from 'ton-core'
-import { TonClient } from 'ton'
+// TODO: Re-enable for Phase 2 TON DNS integration
+// import { Address } from 'ton-core'
+// import { TonClient } from 'ton'
+
+type Address = any
+type TonClient = any
 
 // TON mainnet endpoint (public API)
 const TON_ENDPOINT = 'https://toncenter.com/api/v2/jsonRPC'
