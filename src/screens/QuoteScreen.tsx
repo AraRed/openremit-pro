@@ -179,7 +179,7 @@ export function QuoteScreen() {
 
         {/* Input Form - SIMPLIFIED FOR MVP */}
         <Card className="mb-6">
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold text-gray-900">
                 Bridge USDC Transfer
@@ -219,7 +219,7 @@ export function QuoteScreen() {
                 From Network
               </label>
               <div className="w-full px-4 py-3 text-lg border border-gray-200 rounded-lg bg-gray-50">
-                <span className="font-medium">⟠ Ethereum</span>
+                <span className="font-medium">Ethereum</span>
                 <span className="text-sm text-gray-500 ml-2">(Source chain for MVP)</span>
               </div>
             </div>
@@ -234,9 +234,9 @@ export function QuoteScreen() {
                 onChange={(e) => handleDestinationCountryChange(e.target.value as CountryName)}
                 className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                <option value="Brazil">⬡ Base (L2)</option>
-                <option value="Nigeria">⬡ Arbitrum (L2)</option>
-                <option value="United States">⬡ Optimism (L2)</option>
+                <option value="Brazil">Base (L2)</option>
+                <option value="Nigeria">Arbitrum (L2)</option>
+                <option value="United States">Optimism (L2)</option>
               </select>
               <p className="text-xs text-gray-500 mt-1">
                 💰 Best savings on Ethereum → L2 transfers
