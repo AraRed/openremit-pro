@@ -1,7 +1,7 @@
 /**
  * 🎯 WHY: LoadingScreen with Progressive Status Updates
  *
- * Shows animated loading while AI calculates routes.
+ * Shows animated loading while comparing bridge providers.
  * Updates status progressively to keep user engaged.
  */
 
@@ -18,8 +18,8 @@ export function LoadingScreen({ country, onComplete }: LoadingScreenProps) {
 
   const steps = [
     { text: `Analyzing ${country}`, icon: '✅', delay: 0 },
-    { text: 'Finding all valid paths', icon: '✅', delay: 1500 },
-    { text: 'Calculating best prices', icon: '⏳', delay: 3000 },
+    { text: 'Comparing 15+ bridge providers', icon: '✅', delay: 1500 },
+    { text: 'Finding cheapest route', icon: '⏳', delay: 3000 },
   ]
 
   useEffect(() => {
@@ -91,16 +91,6 @@ export function LoadingScreen({ country, onComplete }: LoadingScreenProps) {
             </motion.div>
           ))}
         </div>
-
-        {/* AI Thinking */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3.5 }}
-          className="mt-8 text-gray-500 text-sm"
-        >
-          🤖 AI is thinking...
-        </motion.p>
       </div>
     </div>
   )
