@@ -213,35 +213,39 @@ export function QuoteScreen() {
               </p>
             </div>
 
-            {/* Source Network - Fixed to Ethereum for MVP */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                From Network
-              </label>
-              <div className="w-full px-4 py-3 text-lg border border-gray-200 rounded-lg bg-gray-50">
-                <span className="font-medium">Ethereum</span>
-                <span className="text-sm text-gray-500 ml-2">(Source chain for MVP)</span>
+            {/* Network Selection - Side by Side */}
+            <div className="grid grid-cols-2 gap-3">
+              {/* Source Network - Fixed to Ethereum for MVP */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  From Network
+                </label>
+                <div className="w-full px-4 py-3 text-lg border border-gray-200 rounded-lg bg-gray-50">
+                  <span className="font-medium">Ethereum</span>
+                </div>
+              </div>
+
+              {/* Destination Network - Our sweet spot routes */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  To Network
+                </label>
+                <select
+                  value={destinationCountry}
+                  onChange={(e) => handleDestinationCountryChange(e.target.value as CountryName)}
+                  className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="Brazil">Base (L2)</option>
+                  <option value="Nigeria">Arbitrum (L2)</option>
+                  <option value="United States">Optimism (L2)</option>
+                </select>
               </div>
             </div>
 
-            {/* Destination Network - Our sweet spot routes */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                To Network
-              </label>
-              <select
-                value={destinationCountry}
-                onChange={(e) => handleDestinationCountryChange(e.target.value as CountryName)}
-                className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              >
-                <option value="Brazil">Base (L2)</option>
-                <option value="Nigeria">Arbitrum (L2)</option>
-                <option value="United States">Optimism (L2)</option>
-              </select>
-              <p className="text-xs text-gray-500 mt-1">
-                💰 Best savings on Ethereum → L2 transfers
-              </p>
-            </div>
+            {/* Helper text below networks */}
+            <p className="text-xs text-gray-500">
+              💰 Best savings on Ethereum → L2 transfers
+            </p>
 
             {/* Recipient Input - @username or wallet address */}
             <div>
