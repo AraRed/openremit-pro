@@ -117,7 +117,7 @@ export function QuoteScreen() {
         setViewState('input') // Back to input
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to connect to AI backend')
+      setError(err instanceof Error ? err.message : 'Failed to connect to backend')
       setViewState('input') // Back to input on error
     }
   }

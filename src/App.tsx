@@ -26,8 +26,8 @@ export default App
  * Phase 1: ✅ TypeScript + React + Vite foundation
  * Phase 2: ✅ Zustand state + Reusable UI components
  * Phase 3: ✅ Chat interface with AI integration
- * Phase 4: ✅ Connected to Flask AI backend
+ * Phase 4: ✅ Connected to Flask backend (Li.Fi + CCTP)
  * Phase 4.5: ✅ Rebuilt with simpler form-based UI
  *
- * Next: Build route comparison cards!
+ * Next: Deploy to production!
  */

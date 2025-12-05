@@ -16,9 +16,9 @@ import type { APIQuoteRequest, APIQuoteResponse } from './types'
 /**
  * Base API URL
  * In development: proxied by Vite to Flask (localhost:5000)
- * In production: your deployed backend URL
+ * In production: Railway backend URL
  */
-const API_BASE_URL = '/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api'
 
 /**
  * 🔧 HOW: Fetch wrapper with error handling
@@ -53,16 +53,16 @@ async function apiRequest<T>(
 
     // Re-throw with user-friendly message
     if (error instanceof Error) {
-      throw new Error(`Failed to connect to AI backend: ${error.message}`)
+      throw new Error(`Failed to connect to backend: ${error.message}`)
     }
     throw new Error('Unknown error occurred')
   }
 }
 
 /**
- * 📡 API: Get route quote from AI
+ * 📡 API: Get route quote
  *
- * Calls your Flask backend which uses Gemini to analyze routes
+ * Calls your Flask backend which uses Li.Fi + CCTP to compare bridges
  *
  * @param request - Amount and country from user
  * @returns Route options with costs
