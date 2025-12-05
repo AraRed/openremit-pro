@@ -8,30 +8,12 @@
  *
  * Uses TON SDK to query DNS smart contracts on-chain
  *
- * NOTE: Disabled for Phase 1 deployment. Will be enabled in Phase 2.
+ * NOTE: Stubbed out for Phase 1 deployment. Will be fully implemented in Phase 2.
  */
 
 // TODO: Re-enable for Phase 2 TON DNS integration
 // import { Address } from 'ton-core'
 // import { TonClient } from 'ton'
-
-type Address = any
-type TonClient = any
-
-// TON mainnet endpoint (public API)
-const TON_ENDPOINT = 'https://toncenter.com/api/v2/jsonRPC'
-
-// Initialize TON client (lazy initialization)
-let tonClient: TonClient | null = null
-
-function getTonClient(): TonClient {
-  if (!tonClient) {
-    tonClient = new TonClient({
-      endpoint: TON_ENDPOINT,
-    })
-  }
-  return tonClient
-}
 
 /**
  * Resolve a .ton domain to a wallet address
@@ -39,29 +21,10 @@ function getTonClient(): TonClient {
  * @param domain - e.g., "alice.ton"
  * @returns Wallet address or null if not found
  */
-export async function resolveTonDomain(domain: string): Promise<string | null> {
-  try {
-    // const client = getTonClient() // TODO: Use for production DNS contract calls
-
-    // TON DNS resolution via TON Center API
-    // Note: This is a simplified version. Production would use DNS contract calls.
-    const response = await fetch(
-      `${TON_ENDPOINT}?method=dnsResolve&domain=${domain}`
-    )
-
-    const data = await response.json()
-
-    if (data.ok && data.result?.wallet) {
-      // Convert to user-friendly address format
-      const address = Address.parse(data.result.wallet)
-      return address.toString({ bounceable: true, urlSafe: true })
-    }
-
-    return null
-  } catch (error) {
-    console.error('❌ TON DNS resolution failed:', error)
-    return null
-  }
+export async function resolveTonDomain(_domain: string): Promise<string | null> {
+  // Stubbed for Phase 1
+  console.warn('TON DNS not yet implemented - Phase 2 feature')
+  return null
 }
 
 /**
@@ -88,13 +51,9 @@ export async function resolveUsername(username: string): Promise<string | null> 
  * @param address - Potential TON address
  * @returns true if valid
  */
-export function isValidTonAddress(address: string): boolean {
-  try {
-    Address.parse(address)
-    return true
-  } catch {
-    return false
-  }
+export function isValidTonAddress(_address: string): boolean {
+  // Stubbed for Phase 1
+  return false
 }
 
 /**
@@ -139,9 +98,9 @@ export function formatTonAddress(address: string): string {
  *          handle missing data."
  *
  * 🚧 PRODUCTION NOTE:
- * This is a simplified version using TON Center API.
- * Production should:
- * - Use DNS contract calls directly via TonClient
+ * This is currently stubbed for Phase 1 deployment.
+ * Phase 2 will implement:
+ * - DNS contract calls directly via TonClient
  * - Cache DNS resolutions (15 min TTL)
  * - Handle rate limits
  * - Support custom RPC endpoints
