@@ -203,7 +203,7 @@ export function QuoteScreen() {
                 min="10"
                 max="100000"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-gray-700 mt-1">
                 Enter amount in USDC ($10 - $100,000)
               </p>
             </div>
@@ -244,7 +244,7 @@ export function QuoteScreen() {
             </div>
 
             {/* Helper text below networks */}
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-700">
               💰 Best savings on Ethereum → L2 transfers
             </p>
 
@@ -267,7 +267,7 @@ export function QuoteScreen() {
                 </p>
               )}
               */}
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-gray-700 mt-1">
                 📱 Phase 2: Enter @username (requires .ton domain) or paste wallet address
               </p>
             </div>
@@ -277,7 +277,7 @@ export function QuoteScreen() {
               <p className="text-sm text-blue-900">
                 <strong>Recipient receives:</strong> USDC on {destinationCountry === 'Brazil' ? 'Base' : destinationCountry === 'Nigeria' ? 'Arbitrum' : 'Optimism'}
               </p>
-              <p className="text-xs text-blue-700 mt-1">
+              <p className="text-xs text-blue-800 mt-1">
                 Same asset, different network. We find the cheapest bridge.
               </p>
             </div>
@@ -351,7 +351,7 @@ export function QuoteScreen() {
 
         {/* Info Footer */}
         {!routes.length && (
-          <div className="mt-8 text-center text-sm text-gray-500">
+          <div className="mt-8 text-center text-sm text-gray-700">
             <p>
               ✅ Real-time quotes from Li.Fi (15+ bridge aggregator)
             </p>
