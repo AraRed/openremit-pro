@@ -15,7 +15,7 @@
  */
 
 import { create } from 'zustand'
-import type { AppState, UserInput, Route, WalletState, ChatMessage, Screen } from '@/lib/types'
+import type { AppState, UserInput, Route, WalletState, ChatMessage, Screen, TransactionStatus } from '@/lib/types'
 
 /**
  * Main application store
@@ -37,6 +37,12 @@ export const useStore = create<AppState>((set, get) => ({
   },
   selectedToken: null,
   messages: [],
+
+  // Transaction state
+  transactionStatus: 'idle' as TransactionStatus,
+  transactionHash: null,
+  transactionError: null,
+  approvalHash: null,
 
   // ===== ACTIONS =====
 
@@ -121,6 +127,46 @@ export const useStore = create<AppState>((set, get) => ({
     set(state => ({
       messages: [...state.messages, newMessage]
     }))
+  },
+
+  /**
+   * Set transaction status
+   */
+  setTransactionStatus: (status: TransactionStatus) => {
+    set({ transactionStatus: status })
+  },
+
+  /**
+   * Set transaction hash
+   */
+  setTransactionHash: (hash: string | null) => {
+    set({ transactionHash: hash })
+  },
+
+  /**
+   * Set transaction error
+   */
+  setTransactionError: (error: string | null) => {
+    set({ transactionError: error })
+  },
+
+  /**
+   * Set approval transaction hash
+   */
+  setApprovalHash: (hash: string | null) => {
+    set({ approvalHash: hash })
+  },
+
+  /**
+   * Reset transaction state
+   */
+  resetTransaction: () => {
+    set({
+      transactionStatus: 'idle' as TransactionStatus,
+      transactionHash: null,
+      transactionError: null,
+      approvalHash: null,
+    })
   },
 
   /**

@@ -18,8 +18,8 @@ export function LoadingScreen({ country, onComplete }: LoadingScreenProps) {
 
   const steps = [
     { text: `Analyzing ${country}`, icon: '✅', delay: 0 },
-    { text: 'Finding all valid paths', icon: '✅', delay: 1500 },
-    { text: 'Calculating best prices', icon: '⏳', delay: 3000 },
+    { text: 'Connecting to Symbiosis', icon: '✅', delay: 1500 },
+    { text: 'Securing quote', icon: '⏳', delay: 3000 },
   ]
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export function LoadingScreen({ country, onComplete }: LoadingScreenProps) {
 
         {/* Title */}
         <h2 className="text-2xl font-bold mb-8 text-gray-900">
-          Finding best routes...
+          Fetching best rate...
         </h2>
 
         {/* Progress Steps */}

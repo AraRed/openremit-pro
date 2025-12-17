@@ -27,6 +27,9 @@ export interface UserInput {
   sourceCurrency: SourceCurrency
   destinationCurrency: DestinationCurrency
   country?: string // Optional - only needed for fiat destinations
+  fromChainId?: number // Source chain (e.g., 1 for Ethereum, 8453 for Base)
+  toChainId?: number // Destination chain (e.g., 8453 for Base, TON chain ID for TON)
+  recipient?: string // Recipient wallet address (0x... for EVM, UQ.../EQ... for TON)
 }
 
 // ===== ROUTES =====
@@ -91,7 +94,7 @@ export interface TokenBalance {
 }
 
 // ===== APP STATE =====
-export type Screen = 'chat' | 'routes' | 'payment' | 'confirmation' | 'status'
+export type Screen = 'chat' | 'routes' | 'payment' | 'confirmation' | 'status' | 'transaction'
 
 export interface AppState {
   // Current screen
@@ -112,6 +115,12 @@ export interface AppState {
   // Chat
   messages: ChatMessage[]
 
+  // Transaction
+  transactionStatus: TransactionStatus
+  transactionHash: string | null
+  transactionError: string | null
+  approvalHash: string | null
+
   // Actions
   setCurrentScreen: (screen: Screen) => void
   setUserInput: (input: UserInput) => void
@@ -121,6 +130,11 @@ export interface AppState {
   setWallet: (wallet: Partial<WalletState>) => void
   setSelectedToken: (token: string | null) => void
   addMessage: (message: Omit<ChatMessage, 'id' | 'timestamp'>) => void
+  setTransactionStatus: (status: TransactionStatus) => void
+  setTransactionHash: (hash: string | null) => void
+  setTransactionError: (error: string | null) => void
+  setApprovalHash: (hash: string | null) => void
+  resetTransaction: () => void
   reset: () => void
 }
 
@@ -137,4 +151,23 @@ export interface APIQuoteResponse {
   routes?: Route[]
   error?: string
   message?: string
+}
+
+// ===== TRANSACTIONS =====
+export type TransactionStatus = 'idle' | 'approving' | 'executing' | 'pending' | 'success' | 'error'
+
+export interface TransactionState {
+  status: TransactionStatus
+  hash: string | null
+  error: string | null
+  approvalHash: string | null
+}
+
+export interface BridgeParams {
+  route: Route
+  fromChainId: number
+  toChainId: number
+  amount: string // Amount in USDC (e.g., "500" for 500 USDC)
+  fromAddress: string
+  toAddress?: string // Recipient address (defaults to fromAddress if not provided)
 }
